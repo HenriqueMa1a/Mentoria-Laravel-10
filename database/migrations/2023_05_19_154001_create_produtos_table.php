@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nome');
+            $table->decimal('valor', 10, 2);
+            $table->timestamps(); //create //update
         });
     }
 
