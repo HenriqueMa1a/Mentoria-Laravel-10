@@ -14,14 +14,14 @@ class Produto extends Model
         'valor'
     ];
 
-    public function getProdutosPesquisarIndex(string $search = '')
+    public function getProdutosPesquisarIndex(string $search = '') //vai começar com uma string vazia
     {
-        $produto = $this->where(function ($query) use ($search){
-            if($search){
+        $produto = $this->where(function ($query) use ($search) {
+            if ($search) {
                 $query->where('nome', $search);
                 $query->orWhere('nome', 'like', "%{$search}%");
             }
-            })->get();
+        })->get();
         return $produto;
     }
 }
