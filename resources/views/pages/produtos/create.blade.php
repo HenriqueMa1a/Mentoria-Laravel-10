@@ -22,6 +22,6 @@
                 <div class="invalid-feedback">{{ $errors->first('valor') }}</div>
             @endif
         </div>
-        <button type="submit" class="btn btn-success">CADASTRAR</button>
+        <button type="submit" class="btn btn-success">GRAVAR</button>
     </form>
 @endsection
