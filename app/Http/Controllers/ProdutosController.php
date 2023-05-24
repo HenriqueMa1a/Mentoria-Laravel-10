@@ -52,7 +52,7 @@ class ProdutosController extends Controller
             $data = $request->all();
             $componentes = new Componentes();
             $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
-            $buscaRegistro=Produto::find($id);
+            $buscaRegistro     = Produto::find($id);
             $buscaRegistro->update($data);
 
             return redirect()->route('produto.index');
@@ -61,4 +61,5 @@ class ProdutosController extends Controller
 
         return view('pages.produtos.atualiza', compact('findProduto'));
     }
+
 }
