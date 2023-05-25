@@ -26,7 +26,7 @@
                             <th>Logradouro</th>
                             <th>Cep</th>
                             <th>Bairro</th>
-                            {{-- <th>Ações</th> --}}
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +38,7 @@
                                 <td>{{ $cliente->logradouro }}</td>
                                 <td>{{ $cliente->cep }}</td>
                                 <td>{{ $cliente->bairro }}</td>
-                                {{-- <td>
+                                <td>
                                     <a href="{{ route('atualizar.cliente', $cliente->id) }}" class="btn btn-light btn-sm">
                                         Editar
                                     </a>
@@ -47,7 +47,7 @@
                                         class="btn btn-danger btn-sm">
                                         Excluir
                                     </a>
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -20,5 +20,15 @@ class ClientesSeeder extends Seeder
                 'bairro'=>'jardim x',
             ]
         );
+        Cliente::create(
+            [
+                'nome'=> 'Teste Maia',
+                'email'=>'henrique@Maia.com',
+                'endereco'=>'rua x',
+                'logradouro'=>'rua x',
+                'cep'=>'2890650',
+                'bairro'=>'jardim x',
+            ]
+        );
     }
 }
