@@ -35,8 +35,7 @@ class ClientesController extends Controller
             //cria os dados
             // dd($request->all());
             $data = $request->all();
-            $componentes = new Componentes();
-            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
+            dd($data);
             Cliente::create($data);
 
             Toastr::success('Gravado com sucesso');
