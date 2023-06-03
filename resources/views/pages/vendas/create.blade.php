@@ -8,11 +8,31 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Numeração</label>
-            <input type="text" disabled class="form-control @error('numero_da_venda') is-invalid @enderror" name="numero_da_venda"
-                value="{{ $findNumeracao}}">
+            <input type="text" disabled class="form-control @error('numero_da_venda') is-invalid @enderror"
+                name="numero_da_venda" value="{{ $findNumeracao }}">
             @if ($errors->has('numero_da_venda'))
                 <div class="invalid-feedback">{{ $errors->first('numero_da_venda') }}</div>
             @endif
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Produto</label>
+            <select class="form-select" name="produto_id">
+                <option selected>Clique para selecionar</option>
+                @foreach ($findProduto as $produto)
+                    <option value="{{$produto->id}}">{{$produto->nome}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Cliente</label>
+            <select class="form-select" name="cliente_id">
+                <option selected>Clique para selecionar</option>
+                @foreach ($findCliente as $cliente)
+                    <option value="{{$cliente->id}}">{{$cliente->nome}}</option>
+                @endforeach
+            </select>
         </div>
         <button type="submit" class="btn btn-success">GRAVAR</button>
     </form>
