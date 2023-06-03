@@ -24,14 +24,14 @@ class VendaController extends Controller
     public function cadastrarVenda(FormRequestVenda $request)
     {
         if ($request->method() == 'POST') {
-            //cria os dados
-            // dd($request->all());
+
             $data = $request->all();
             Venda::create($data);
             Toastr::success('Gravado com sucesso');
             return redirect()->route('vendas.index');
         }
 
-        return view('pages.vendas.create');
+        $findNumeracao = Venda::max('numero_da_venda') + 1;
+        return view('pages.vendas.create', compact('findNumeracao') );
     }
 }
