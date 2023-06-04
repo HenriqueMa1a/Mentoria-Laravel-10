@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestVenda;
+use App\Mail\ComprovanteDeVendaEmail;
 use App\Models\Cliente;
 use App\Models\Produto;
 use App\Models\Venda;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use PharIo\Manifest\Email;
 
 class VendaController extends Controller
 {
@@ -38,6 +41,24 @@ class VendaController extends Controller
             return redirect()->route('vendas.index');
         }
 
-        return view('pages.vendas.create', compact('findNumeracao', 'findProduto', 'findCliente') );
+        return view('pages.vendas.create', compact('findNumeracao', 'findProduto', 'findCliente'));
     }
+    public function enviaComprovantePorEmail($id)
+    {
+        $buscaVenda = Venda::where('id', '=', $id)->first();
+        $produtoNome = $buscaVenda->produto->nome;
+        $clienteNome = $buscaVenda->cliente->nome;
+        $clienteEmail = $buscaVenda->cliente->email;
+
+        $sendMmailData = [
+            'produtoNome' => $produtoNome,
+            'clienteNome' => $clienteNome
+        ];
+        Mail::to($clienteEmail)->send(new ComprovanteDeVendaEmail($sendMmailData));
+
+        Toastr::success('Email enviado com sucesso');
+        return redirect()->route('vendas.index');
+    }
+
+
 }
