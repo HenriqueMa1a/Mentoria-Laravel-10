@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VendaController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 });
+
 
 //Produtos
 // http://localhost:8989/produtos/maisAlgumacoisa
@@ -23,6 +25,7 @@ Route::prefix('produtos')->group(function () {
     Route::put('/atualizarProduto/{id}', [ProdutosController::class, 'atualizarProduto'])->name('atualizar.produto');
     Route::delete('/delete', [ProdutosController::class, 'delete'])->name('produto.delete');
 });
+
 //Clientes
 Route::prefix('clientes')->group(function () {
     Route::get('/', [ClientesController::class, 'index'])->name('clientes.index');
@@ -34,6 +37,7 @@ Route::prefix('clientes')->group(function () {
     Route::put('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente'])->name('atualizar.cliente');
     Route::delete('/delete', [ClientesController::class, 'delete'])->name('cliente.delete');
 });
+
 //Vendas
 Route::prefix('vendas')->group(function () {
     Route::get('/', [VendaController::class, 'index'])->name('vendas.index');
@@ -41,4 +45,10 @@ Route::prefix('vendas')->group(function () {
     Route::get('/cadastrarVenda', [VendaController::class, 'cadastrarVenda'])->name('cadastrar.venda');
     Route::post('/cadastrarVenda', [VendaController::class, 'cadastrarVenda'])->name('cadastrar.venda');
     Route::get('/enviaComprovantePorEmail/{id}', [VendaController::class, 'enviaComprovantePorEmail'])->name('enviaComprovantePorEmail.venda');
+});
+
+//Usuario
+Route::prefix('usuario')->group(function () {
+    Route::get('/', [UsuarioController::class, 'index'])->name('usuario.index');
+
 });
