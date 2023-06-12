@@ -6,7 +6,7 @@
     </div>
     <div>
         <form action="{{ route('clientes.index') }}" method="get">
-            <input type="text" name="pesquisar" placeholder="Digite o nome do Cliente" />
+            <input type="text" name="pesquisar" placeholder="Digite o nome do cliente" />
             <button>Pesquisar</button>
             <a type="button" href="{{ route('cadastrar.cliente') }}" class="btn btn-success float-end">
                 Incluir Cliente
