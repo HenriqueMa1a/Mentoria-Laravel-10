@@ -7,11 +7,13 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VendaController;
 use Illuminate\Support\Facades\Route;
 
+$prefixes = ['/', 'dashboard'];
 
-Route::prefix('dashboard')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-});
-
+foreach ($prefixes as $prefix) {
+    Route::prefix($prefix)->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+    });
+}
 
 //Produtos
 // http://localhost:8989/produtos/maisAlgumacoisa

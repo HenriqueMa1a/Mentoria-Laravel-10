@@ -12,12 +12,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
         $totalDeProdutoCadastrado = $this->buscaTotalProdutoCadastrado();
         $totalDeClienteCadastrado = $this->buscaTotalClienteCadastrado();
         $totalDeVendaCadastrado = $this->buscaTotalVendaCadastrado();
         $totalDeUsuarioCadastrado = $this->buscaTotalUsuarioCadastrado();
 
         return view('pages.dashboard.dashboard', compact('totalDeProdutoCadastrado', 'totalDeClienteCadastrado', 'totalDeVendaCadastrado', 'totalDeUsuarioCadastrado'));
+
     }
 
     public function buscaTotalProdutoCadastrado()

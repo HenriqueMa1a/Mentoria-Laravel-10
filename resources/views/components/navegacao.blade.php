@@ -10,7 +10,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('vendas.index')}}">
             <span data-feather="file" class="align-text-bottom"></span>
-            Venda
+            Vendas
           </a>
         </li>
         <li class="nav-item">
@@ -28,7 +28,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('usuario.index')}}">
             <span data-feather="users" class="align-text-bottom"></span>
-            Usuário
+            Usuários
           </a>
         </li>
       </ul>
